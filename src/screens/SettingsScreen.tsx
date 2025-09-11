@@ -10,7 +10,7 @@ const SettingsScreen: React.FC = () => {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: colors.background }}>
-      <ScrollView contentContainerStyle={{ padding: 16, paddingBottom: 40 }}>
+      <ScrollView contentContainerStyle={{ padding: 55,paddingHorizontal:23, paddingBottom: 40 }}>
         {/* Device Management */}
         <Section colors={colors} title="Device Management">
           <View style={styles.row}>
@@ -28,7 +28,7 @@ const SettingsScreen: React.FC = () => {
           {[
             { label: 'Usage Alerts', value: true },
             { label: 'Occupancy Alerts', value: false },
-            { label: 'Tips & Suggestions', value: true }
+            // { label: 'Tips & Suggestions', value: true }
           ].map((n, i) => (
             <View key={i} style={styles.rowSpace}>
               <Text style={{ color: colors.textPrimary }}>{n.label}</Text>
@@ -44,18 +44,18 @@ const SettingsScreen: React.FC = () => {
             <Switch value={true} onChange={() => {}} thumbColor="#fff" trackColor={{ false: colors.border, true: colors.primary }} />
           </View>
           <View style={[styles.rowSpace, { marginTop: 8 }]}>
-            <Text style={{ color: colors.textPrimary }}>Bluetooth</Text>
+            <Text style={{ color: colors.textPrimary }}>Wi-Fi</Text>
             <Switch value={true} onChange={() => {}} thumbColor="#fff" trackColor={{ false: colors.border, true: colors.primary }} />
           </View>
         </Section>
 
         {/* Sensitivity */}
-        <Section colors={colors} title="Sensitivity">
+        {/* <Section colors={colors} title="Sensitivity">
           <Text style={{ color: colors.textSecondary, marginBottom: 6 }}>Motion Sensitivity</Text>
           <Slider value={0.7} minimumValue={0} maximumValue={1} minimumTrackTintColor={colors.primary} maximumTrackTintColor={colors.border} />
           <Text style={{ color: colors.textSecondary, marginTop: 12, marginBottom: 6 }}>Light Threshold</Text>
           <Slider value={0.4} minimumValue={0} maximumValue={1} minimumTrackTintColor={colors.primary} maximumTrackTintColor={colors.border} />
-        </Section>
+        </Section> */}
 
         {/* Units & Themes */}
         <Section colors={colors} title="Units & Themes">
@@ -76,7 +76,7 @@ const SettingsScreen: React.FC = () => {
               <Text style={styles.actionBtnText}>Change PIN</Text>
             </TouchableOpacity>
             <TouchableOpacity style={[styles.actionBtn, { backgroundColor: colors.primary }]}>
-              <Text style={styles.actionBtnText}>Biometrics</Text>
+              <Text style={styles.actionBtnText}>Reset</Text>
             </TouchableOpacity>
           </View>
         </Section>

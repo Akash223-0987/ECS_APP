@@ -23,9 +23,9 @@ export default function HomeScreen() {
           <Text style={styles.logo}>NeuroWatt</Text>
           <View>
             <Text style={styles.roomName}>Living Room</Text>
-            <Text style={styles.connected}>Connected</Text>
+            {/* <Text style={styles.connected}>Connected</Text> */}
           </View>
-          <Text style={styles.battery}>🔋 50%</Text>
+          {/* <Text style={styles.battery}>🔋 50%</Text> */}
         </View>
 
         {/* Live Occupancy */}
@@ -61,7 +61,7 @@ export default function HomeScreen() {
           <Text style={styles.cardTitle}>Energy Summary</Text>
           <ProgressChart
             data={{ data: [0.5, 0.25] }} // Usage 50%, Savings 25%
-            width={screenWidth - 60}
+            width={screenWidth - 590}
             height={180}
             strokeWidth={12}
             radius={40}
@@ -101,7 +101,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5F5F5',
   },
   scrollContent: {
-    padding: 16,
+    padding: 55,
+    paddingHorizontal: 23,
     paddingBottom: 40,
   },
   header: {
@@ -113,7 +114,7 @@ const styles = StyleSheet.create({
   logo: {
     fontSize: 22,
     fontWeight: 'bold',
-    color: '#FFB300',
+    color: '#2E7D32',
   },
   roomName: {
     fontSize: 16,
