@@ -10,7 +10,7 @@ const ProfileScreen: React.FC = () => {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: colors.background }}>
-      <ScrollView contentContainerStyle={{ padding: 16, paddingBottom: 40 }}>
+      <ScrollView contentContainerStyle={{ padding: 55, paddingHorizontal:23, paddingBottom: 40 }}>
         {/* User Info */}
         <Section colors={colors} title="User">
           <View style={styles.row}>
@@ -18,8 +18,8 @@ const ProfileScreen: React.FC = () => {
               <Ionicons name="person" size={40} color={colors.textSecondary} />
             </View>
             <View style={{ marginLeft: 12 }}>
-              <Text style={{ color: colors.textPrimary, fontWeight: '700', fontSize: 16 }}>Akash D</Text>
-              <Text style={{ color: colors.textSecondary }}>akash@example.com</Text>
+              <Text style={{ color: colors.textPrimary, fontWeight: '700', fontSize: 16 }}>user</Text>
+              <Text style={{ color: colors.textSecondary }}>user@example.com</Text>
             </View>
           </View>
         </Section>
@@ -27,7 +27,9 @@ const ProfileScreen: React.FC = () => {
         {/* Usage History */}
         <Section colors={colors} title="Usage History">
           <Text style={{ color: colors.textSecondary }}>
-            Last 30 days: 142 kWh • Average daily: 4.7 kWh • Best day: 3.1 kWh
+            • Last 30 days: 142 kWh {'\n'}
+            • Average daily: 4.7 kWh {'\n'}
+            • Best day: 3.1 kWh
           </Text>
         </Section>
 
@@ -39,7 +41,7 @@ const ProfileScreen: React.FC = () => {
         </Section>
 
         {/* Feedback */}
-        <Section colors={colors} title="Feedback">
+        {/* <Section colors={colors} title="Feedback">
           <View style={{ gap: 8 }}>
             <View style={[styles.textArea, { borderColor: colors.border }]}>
               <Text style={{ color: colors.textSecondary }}>Write your feedback here…</Text>
@@ -48,10 +50,10 @@ const ProfileScreen: React.FC = () => {
               <Text style={[styles.primaryBtnText, { color: '#000' }]}>Submit</Text>
             </TouchableOpacity>
           </View>
-        </Section>
+        </Section> */}
 
         {/* Logout */}
-        <Section colors={colors} title=" " >
+        <Section colors={colors} title="Account">
           <TouchableOpacity style={[styles.primaryBtn, { backgroundColor: colors.danger }]}>
             <Text style={styles.primaryBtnText}>Logout</Text>
           </TouchableOpacity>
@@ -66,7 +68,7 @@ const styles = StyleSheet.create({
   avatar: { width: 64, height: 64, borderRadius: 32, alignItems: 'center', justifyContent: 'center' },
   primaryBtn: { paddingVertical: 12, borderRadius: 12, alignItems: 'center' },
   primaryBtnText: { color: '#fff', fontWeight: '700' },
-  textArea: { borderWidth: 1, borderRadius: 10, padding: 12, height: 100, justifyContent: 'flex-start' }
+  textArea: { borderWidth: 1, borderRadius: 10, padding: 50, height: 100, justifyContent: 'flex-start' }
 });
 
 export default ProfileScreen;

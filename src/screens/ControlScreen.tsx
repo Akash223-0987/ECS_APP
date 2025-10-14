@@ -35,7 +35,8 @@ const ControlScreen: React.FC = () => {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: colors.background }}>
-      <ScrollView contentContainerStyle={{ padding: 16, paddingBottom: 40 }}>
+      <ScrollView contentContainerStyle={{ paddingTop: 55, paddingHorizontal: 23, paddingBottom: 40 }}>
+
         {/* Mode Switcher */}
         <Section colors={colors} title="Mode">
           <View style={styles.rowSpace}>
@@ -142,7 +143,7 @@ const ControlScreen: React.FC = () => {
         </Section>
 
         {/* Sensor View - Thermal Grid */}
-        <Section colors={colors} title="Sensor View (Thermal Map)">
+        {/* <Section colors={colors} title="Sensor View (Thermal Map)">
           <View style={[styles.gridWrap, { gap: 2 }]}>
             {Array.from({ length: 64 }).map((_, i) => (
               <View
@@ -157,7 +158,7 @@ const ControlScreen: React.FC = () => {
               />
             ))}
           </View>
-        </Section>
+        </Section> */}
       </ScrollView>
     </SafeAreaView>
   );
@@ -172,7 +173,7 @@ const styles = StyleSheet.create({
   primaryBtn: { marginTop: 12, paddingVertical: 12, borderRadius: 12, alignItems: 'center' },
   primaryBtnText: { color: '#fff', fontWeight: '700' },
   logItem: { flexDirection: 'row', alignItems: 'center', paddingVertical: 8, borderBottomWidth: 1 },
-  gridWrap: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between' }
+  // gridWrap: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between' }
 });
 
 export default ControlScreen;

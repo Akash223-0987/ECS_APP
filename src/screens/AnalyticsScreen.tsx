@@ -45,17 +45,17 @@ export default function AnalyticsScreen() {
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
         
-        <Text style={styles.sectionTitle}>Daily Usage</Text>
+        <Text style={styles.sectionTitle}>Daily Usage{'\n'}</Text>
         <LineChart
           data={lineData}
-          width={screenWidth - 32}
-          height={220}
+          width={screenWidth - 575}
+          height={500}
           chartConfig={chartConfig}
           bezier
           style={styles.chart}
         />
 
-        <Text style={styles.sectionTitle}>Monthly Savings</Text>
+        <Text style={styles.sectionTitle}>Monthly Savings{'\n'}{'\n'}</Text>
        <BarChart
   data={{
     labels: ['Jan', 'Feb', 'Mar', 'Apr'],
@@ -65,7 +65,7 @@ export default function AnalyticsScreen() {
       },
     ],
   }}
-  width={screenWidth - 32}
+  width={screenWidth - 120}
   height={220}
   yAxisLabel=""
   yAxisSuffix="kWh"
@@ -75,10 +75,10 @@ export default function AnalyticsScreen() {
 />
 
 
-        <Text style={styles.sectionTitle}>Appliance Breakdown</Text>
+        <Text style={styles.sectionTitle}>Appliance Breakdown{'\n'}{'\n'}</Text>
         <PieChart
           data={pieData}
-          width={screenWidth - 32}
+          width={screenWidth - 575}
           height={220}
           chartConfig={chartConfig}
           accessor="population"
@@ -92,7 +92,7 @@ export default function AnalyticsScreen() {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#F5F5F5' },
-  scrollContent: { padding: 16, paddingBottom: 40 },
+  scrollContent: { padding: 55, paddingHorizontal: 23, paddingBottom: 40},
   sectionTitle: { fontSize: 18, fontWeight: '600', color: '#000', marginBottom: 8, marginTop: 16 },
   chart: { borderRadius: 12, marginBottom: 16 },
 });
