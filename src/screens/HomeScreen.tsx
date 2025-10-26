@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   SafeAreaView,
   View,
@@ -10,8 +9,33 @@ import {
 } from 'react-native';
 import { ProgressChart } from 'react-native-chart-kit';
 import { Ionicons } from '@expo/vector-icons';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const screenWidth = Dimensions.get('window').width;
+
+const [lightStatus, setLightStatus] = useState({
+  ledState: false,
+  autoMode: true,
+  motionDetected: false
+});
+
+useEffect(() => {
+  const fetchStatus = async () => {
+    try {
+      const response = await axios.get('http://192.168.137.179/status'); // Replace with your IP
+      setLightStatus(response.data);
+    } catch (error) {
+      console.error('Error fetching status:', error);
+    }
+  };
+
+  const interval = setInterval(fetchStatus, 5000);
+  fetchStatus();
+  
+  return () => clearInterval(interval);
+}, []);
+
 
 export default function HomeScreen() {
   return (
@@ -44,15 +68,26 @@ export default function HomeScreen() {
         <View>
           {['AC', 'Fan', 'Lights'].map((appliance, index) => (
             <View key={index} style={styles.applianceCard}>
-              <Text style={styles.applianceTitle}>{appliance}</Text>
-              <Text style={styles.applianceStatus}>
-                {appliance === 'Lights' ? 'OFF' : 'ON'}
-              </Text>
-              <Text style={styles.subText}>2.3A / 500W</Text>
-              <Text style={styles.modeBadge}>
-                {appliance === 'AC' ? 'Auto' : 'Manual'}
-              </Text>
-            </View>
+    <Text style={styles.applianceTitle}>{appliance}</Text>
+    <Text style={styles.applianceStatus}>
+      {appliance === 'Lights' 
+        ? (lightStatus.ledState ? 'ON' : 'OFF')
+        : 'ON'
+      }
+    </Text>
+    <Text style={styles.subText}>
+      {appliance === 'Lights' 
+        ? `Mode: ${lightStatus.autoMode ? 'Auto' : 'Manual'}`
+        : '2.3A / 500W'
+      }
+    </Text>
+    <Text style={styles.modeBadge}>
+      {appliance === 'Lights' 
+        ? (lightStatus.motionDetected ? 'Motion' : 'No Motion')
+        : (appliance === 'AC' ? 'Auto' : 'Manual')
+      }
+    </Text>
+  </View>
           ))}
         </View>
 
